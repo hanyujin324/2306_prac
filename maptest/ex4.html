@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>지도</title>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=id입력"></script>
+</head>
+<body>
+<div id="map" style="width:100%;height:700px;"></div>
+
+<script>
+var mapOptions = {
+    center: new naver.maps.LatLng(36.35230, 127.37848),
+    zoom: 20,
+    indoor: true
+};
+
+var map = new naver.maps.Map('map', mapOptions);
+
+naver.maps.Event.once(map, 'init_stylemap', function() {
+    map.setMapTypeId(naver.maps.MapTypeId.SKYVIEW); // 실내지도 타입 설정
+    map.setOptions({ // 실내지도 옵션 설정
+        indoorControl: true,
+        indoorControlOptions: {
+            position: naver.maps.Position.TOP_RIGHT
+        }
+    });
+});
+</script>
+</body>
+</html>

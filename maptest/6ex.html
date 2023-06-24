@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>Naver 지도 표시하기</title>
+    <script type="text/javascript"
+        src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=id입력"></script>
+</head>
+
+<body>
+    <h1>NAVER MAP</h1>
+    <div id="map" style="width:100%;height:400px;"></div>
+
+    <script>
+
+        const locations = [
+            { place:"건대입구역", lat: 37.539922, lng: 127.070609 },
+            { place:"어린이대공원역", lat: 37.547263, lng: 127.074181 },
+        ];
+
+        var map = new naver.maps.Map('map', {
+            center: new naver.maps.LatLng(37.539922, 127.070609),
+            zoom: 14
+        });
+
+        for (var i = 0; i < locations.length; i++) {
+                var marker = new naver.maps.Marker({
+                    map: map,
+                    title: locations[i].place,
+                    position: new naver.maps.LatLng(locations[i].lat, locations[i].lng),
+                });
+            }
+
+    </script>
+</body>
+
+</html>
