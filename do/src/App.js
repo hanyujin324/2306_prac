@@ -1,70 +1,28 @@
-import React, { useState } from 'react';
+import React from 'react';
+import LoginPage from './LoginPage.tsx';
+// import logo from './logo.svg';
+// import './App.css';
 
-const LoginHeader = () => {
+function App() {
   return (
-    <div className="header" style={{ textAlign: 'center', color: 'rgb(51, 141, 242)' }}>
-      <h1>Login</h1>
+    <div className="App">
+      <header className="App-header">
+{/*         <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a> */}
+        <LoginPage />
+      </header>
     </div>
   );
-};
+}
 
-const LoginForm = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleUsernameChange = (e) => {
-    setUsername(e.target.value);
-  };
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
-
-  return (
-    <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', height: '55vh' }}>
-      <div style={{ flex: 1 }}></div>
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', height: '40%' }}>
-        <label style={{ display: 'flex', alignItems: 'center', height: '30%' }}>
-          <input type="text" placeholder="ID" value={username} onChange={handleUsernameChange} style={{ border: 'none', height: '50px' }}/>
-          <span role="img" aria-label="search" style={{ marginLeft: '5px' }}>
-            🔍
-          </span>
-        </label>
-        <br />
-        <label style={{ display: 'flex', alignItems: 'center', height: '30%' }}>
-          <input type="password"  placeholder="PW" value={password} onChange={handlePasswordChange} style={{ border: 'none', height: '50px' }} />
-          <span role="img" aria-label="search" style={{ marginLeft: '5px' }}>
-            👤
-          </span>
-        </label>
-      </div>
-      <div style={{ display: 'flex', justifyContent: 'center', width: '100%', marginTop: '8%' }}>
-        <input type="submit" value="SIGN IN" style={{ backgroundColor: 'rgb(229, 241, 253)', color: 'rgb(51, 141, 242)', fontSize: '17px', fontWeight: 'bold', borderRadius: '5px', width: '50%', height: '50px', border: '2px solid rgb(51, 141, 242)' }} />
-      </div>
-    </form>
-  );
-};
-
-const LoginFooter = () => {
-  return (
-    <div className="footer" style={{ display: 'flex', justifyContent: 'center', marginTop: '20px', height: '25vh' }}>
-      <button style={{ backgroundColor: 'rgb(229, 241, 253)', color: 'rgb(51, 141, 242)', fontSize: '17px', fontWeight: 'bold', borderRadius: '5px', width: '50%', height: '50px', border: '2px solid rgb(51, 141, 242)' }}>SIGN UP</button>
-    </div>
-  );
-};
-
-const LoginPage = () => {
-  return (
-    <div className="login-page" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-      <LoginHeader />
-      <LoginForm />
-      <LoginFooter />
-    </div>
-  );
-};
-
-export default LoginPage;
+export default App;
